@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 
 // components
@@ -6,19 +6,26 @@ import Start from "./components/start";
 import Quiz from "./components/quiz";
 import Restart from "./components/restart";
 import Confetti from "./components/Confetti";
+import { CategoryContext } from "./ context/category";
+
+
+
 
 
 function App() {
+  const {Categories , setCategory} = useContext(CategoryContext)
   const [start, setStart] = useState(true);
   const [que, setQue] = useState([]);
   const [stats, setStat] = useState("");
   const [count, setCount] = useState(0);
   const [restarts, setRestart] = useState(false);
+  const [select , setSelect] = useState(0) 
+  const [difficulty , setDiffuculty] = useState('easy')
 
   useEffect(() => {
     async function getQuestions() {
       const response = await fetch(
-        "https://opentdb.com/api.php?amount=5&category=21&difficulty=easy&type=multiple"
+        `https://opentdb.com/api.php?amount=5&category=${select}&difficulty=${difficulty}&type=multiple`
       );
       const { results } = await response.json();
       const questions = await Promise.all(
@@ -45,7 +52,7 @@ function App() {
       setQue(questions);
     }
     getQuestions();
-  }, [restarts]);
+  },[select , restarts]);
 
 
 
@@ -93,6 +100,15 @@ function App() {
     setRestart((prev) => !prev);
   };
 
+
+  const handleChange = (select) => {
+    setSelect(select)
+  }
+
+  const handleDiffuculty = (diff) => {
+    setDiffuculty(diff)
+  }
+
   return (
     <>
     {count === 5 && <Confetti/>}
@@ -101,7 +117,7 @@ function App() {
         <div className="header-child"></div>
       </div>
       <div> 
-        {start && <Start start={startGame} />}
+        {start && <Start start={startGame}  handleChange={handleChange} handleDiffuculty={handleDiffuculty}/>}
         {stats == "started" && (
           <Quiz
             que={que}
