@@ -86,15 +86,6 @@
   font-weight: 500;
   font-size: 1rem;
 }
-.category {
-width: 200px;
-padding: 1em ;
-border:1px rgba(0 ,0 ,0, 0.2);
-border-radius: 4px;
-margin: 1.5em;
-box-shadow: 0 0 3px rgba(0 ,0 ,0, 0.4);
-}
-
 @media (max-width: 600px) {
 .option-container {
   flex-direction: column;

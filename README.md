@@ -1,7 +1,7 @@
 
 # Quizz app 
 
-The Quizz app is a web application that allow users to quizzes on sports related topics. The app provides a user-freindly interface that allow users to easily navigate and take quizzes . after starting the quizz we have 5 questions and which consist of multiple choices after all anwers is selected by user now you can check the wheather your selected answers is right or not . at the end of the quizz , the app display score and provide an option to retake the quiz 
+The Quizz app is a web application that allow users to quizzes on different  related topics. The app provides a user-freindly interface that allow users to easily navigate and take quizzes . after starting the quizz we have 5 questions and which consist of multiple choices after all anwers is selected by user now you can check the wheather your selected answers is right or not . at the end of the quizz , the app display score  and provide an option to retake the quiz 
 
 
 ## Features
@@ -10,6 +10,7 @@ The Quizz app is a web application that allow users to quizzes on sports related
 - Random question and answers
 - score tracking and displays it at end of the quiz
 - Responsive desing for Mobile and desktop devices
+- 
 
 
 ## Installation
